@@ -1,4 +1,4 @@
-const ChildInfoView = ({ inputs }) => {
+const ChildInfoView = ({ item }) => {
   const {
     no,
     relationshipInfo,
@@ -9,7 +9,7 @@ const ChildInfoView = ({ inputs }) => {
     educationalInstitution,
     phoneNumber,
     copyRequestState,
-  } = inputs;
+  } = item;
   return (
     <tr>
       <td>{no}</td>

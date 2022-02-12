@@ -1,14 +1,32 @@
 import { useState } from "react";
 
-import ChildInfoInputs from "./ChildInfoInputs";
-// import ChildInfoView from "./ChildInfoView";
+import ChildInfoItem from "./ChildInfoItem";
+
 const ChildInfo = ({ isEdit }) => {
+  const inputs = {
+    no: "",
+    relationshipInfo: "",
+    name: "",
+    gender: "",
+    age: "",
+    residenRegistrationNumber: "",
+    educationalInstitution: "",
+    phoneNumber: "",
+    copyRequestState: "",
+  };
   const [childInfoList, setChildInfoList] = useState([]);
 
-  console.log(childInfoList);
   return (
     <>
-      {isEdit && <button onclick={() => {}}>추가</button>}
+      {isEdit && (
+        <button
+          onClick={() => {
+            setChildInfoList([...childInfoList, inputs]);
+          }}
+        >
+          추가
+        </button>
+      )}
       <h3>대상자 정보</h3>
       <table>
         <tr>
@@ -22,17 +40,9 @@ const ChildInfo = ({ isEdit }) => {
           <th>전화번호</th>
           <th>주민등록 등초본 신청 상태</th>
         </tr>
-        {
-          isEdit ? (
-            <ChildInfoInputs
-              childInfoList={childInfoList}
-              setChildInfoList={setChildInfoList}
-            />
-          ) : (
-            <span>false</span>
-          )
-          // <ChildInfoView inputs={inputs} />
-        }
+        {childInfoList.map((item) => (
+          <ChildInfoItem isEdit={isEdit} />
+        ))}
       </table>
     </>
   );
