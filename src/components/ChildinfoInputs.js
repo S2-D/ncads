@@ -1,4 +1,17 @@
-const ChildInfoInputs = ({ inputs, setInputs }) => {
+import { useState } from "react";
+const ChildInfoInputs = ({ childInfoList, setChildInfoList }) => {
+  const [inputs, setInputs] = useState({
+    no: "",
+    relationshipInfo: "",
+    name: "",
+    gender: "",
+    age: "",
+    residenRegistrationNumber: "",
+    educationalInstitution: "",
+    phoneNumber: "",
+    copyRequestState: "",
+  });
+
   const onChange = (e) => {
     const { value, name } = e.target;
     setInputs({
@@ -6,6 +19,7 @@ const ChildInfoInputs = ({ inputs, setInputs }) => {
       [name]: value,
     });
   };
+
   const {
     no,
     relationshipInfo,
