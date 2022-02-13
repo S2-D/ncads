@@ -4,6 +4,7 @@ import BasicInfo from "./components/BasicInfo";
 import ChildInfo from "./components/ChildInfo";
 import ChildRelationship from "./components/ChildRelationship";
 import Compelete from "./components/Compelete";
+import InvestigationDetail from "./components/InvestigationDetail";
 
 function App() {
   const [isEdit, setIsEdit] = useState(false);
@@ -28,6 +29,7 @@ function App() {
         <ChildRelationship isEdit={isEdit} />
         <Compelete isEdit={isEdit} />
         <hr />
+        <InvestigationDetail isEdit={isEdit} />
       </div>
     </div>
   );
