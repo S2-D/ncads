@@ -1,26 +1,34 @@
-import "./App.css";
 import { useState } from "react";
-
+import "./App.css";
 import BasicInfo from "./components/BasicInfo";
 import ChildInfo from "./components/ChildInfo";
-// import ChildRelationship from "./components/ChildRelationship";
-// import Compelete from "./components/Compelete";
+import ChildRelationship from "./components/ChildRelationship";
+import Compelete from "./components/Compelete";
 
 function App() {
   const [isEdit, setIsEdit] = useState(false);
   return (
     <div className="App">
       <button
+        className="btn btn-outline-primary"
         onClick={() => {
           setIsEdit(!isEdit);
         }}
       >
         {isEdit ? "완료" : "수정"}
       </button>
-      <BasicInfo isEdit={isEdit} />
-      <ChildInfo isEdit={isEdit} />
-      {/* <ChildRelationship />
-      <Compelete /> */}
+      <div className="app-container">
+        <h2>
+          아동학대조사{"  "}
+          {isEdit && <small class="text-muted"> (수정 모드)</small>}
+        </h2>
+
+        <BasicInfo isEdit={isEdit} />
+        <ChildInfo isEdit={isEdit} />
+        <ChildRelationship isEdit={isEdit} />
+        <Compelete isEdit={isEdit} />
+        <hr />
+      </div>
     </div>
   );
 }

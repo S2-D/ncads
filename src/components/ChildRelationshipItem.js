@@ -1,18 +1,16 @@
 import { useState } from "react";
 
-const ChildInfoItem = ({ isEdit }) => {
+const ChildRelationshipItem = ({ isEdit }) => {
   const [inputs, setInputs] = useState({
     no: "",
-    relationshipInfo: "",
-    name: "",
-    gender: "",
-    age: "",
-    residenRegistrationNumber: "",
-    educationalInstitution: "",
-    phoneNumber: "",
-    copyRequestState: "",
+    childName: "",
+    abuserName: "",
+    relationshipWithChild: "",
+    livingTogether: "",
+    reReport: "",
+    specialCare: "",
+    IndividualRegistrationNumber: "",
   });
-
   const onChange = (e) => {
     const { value, name } = e.target;
     setInputs({
@@ -23,20 +21,20 @@ const ChildInfoItem = ({ isEdit }) => {
 
   const {
     no,
-    relationshipInfo,
-    name,
-    gender,
-    age,
-    residenRegistrationNumber,
-    educationalInstitution,
-    phoneNumber,
-    copyRequestState,
+    childName,
+    abuserName,
+    relationshipWithChild,
+    livingTogether,
+    reReport,
+    specialCare,
+    IndividualRegistrationNumber,
   } = inputs;
+
   return (
     <tr>
       {isEdit ? (
         <>
-          <td>
+          <td style={{ width: "80px" }}>
             <input
               className="form-control"
               name="no"
@@ -46,84 +44,78 @@ const ChildInfoItem = ({ isEdit }) => {
           </td>
           <td>
             <input
+              style={{ width: "100px" }}
               className="form-control"
-              name="relationshipInfo"
+              name="childName"
               onChange={onChange}
-              value={relationshipInfo}
+              value={childName}
+            />
+          </td>
+          <td>
+            <input
+              style={{ width: "100px" }}
+              className="form-control"
+              name="abuserName"
+              onChange={onChange}
+              value={abuserName}
+            />{" "}
+          </td>
+          <td>
+            <input
+              className="form-control"
+              name="relationshipWithChild"
+              onChange={onChange}
+              value={relationshipWithChild}
+            />{" "}
+          </td>
+          <td>
+            <input
+              className="form-control"
+              name="livingTogether"
+              onChange={onChange}
+              value={livingTogether}
+            />{" "}
+          </td>
+          <td>
+            <textarea
+              className="form-control"
+              name="reReport"
+              onChange={onChange}
+              value={reReport}
             />
           </td>
           <td>
             <input
               className="form-control"
-              name="name"
+              name="specialCare"
               onChange={onChange}
-              value={name}
+              value={specialCare}
             />{" "}
           </td>
           <td>
             <input
               className="form-control"
-              name="gender"
+              name="IndividualRegistrationNumber"
               onChange={onChange}
-              value={gender}
+              value={IndividualRegistrationNumber}
             />{" "}
-          </td>
-          <td>
-            <input
-              className="form-control"
-              name="age"
-              type="number"
-              onChange={onChange}
-              value={age}
-            />{" "}
-          </td>
-          <td>
-            <input
-              className="form-control"
-              name="residenRegistrationNumber"
-              onChange={onChange}
-              value={residenRegistrationNumber}
-            />{" "}
-          </td>
-          <td>
-            <input
-              className="form-control"
-              name="educationalInstitution"
-              onChange={onChange}
-              value={educationalInstitution}
-            />{" "}
-          </td>
-          <td>
-            <input
-              className="form-control"
-              name="phoneNumber"
-              onChange={onChange}
-              value={phoneNumber}
-            />{" "}
-          </td>
-          <td>
-            <input
-              className="form-control"
-              name="copyRequestState"
-              onChange={onChange}
-              value={copyRequestState}
-            />
           </td>
         </>
       ) : (
         <>
           <td>{no}</td>
-          <td>{relationshipInfo}</td>
-          <td>{name}</td>
-          <td>{gender}</td>
-          <td>{age}</td>
-          <td>{residenRegistrationNumber}</td>
-          <td>{educationalInstitution}</td>
-          <td>{phoneNumber}</td>
-          <td>{copyRequestState}</td>
+          <td>{childName}</td>
+          <td>{abuserName}</td>
+          <td>{relationshipWithChild}</td>
+          <td>{livingTogether}</td>
+          <td>
+            <textarea readOnly={true} value={reReport} />
+          </td>
+          <td>{specialCare}</td>
+          <td>{IndividualRegistrationNumber}</td>
         </>
       )}
     </tr>
   );
 };
-export default ChildInfoItem;
+export default ChildRelationshipItem;

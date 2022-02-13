@@ -1,12 +1,50 @@
-const ChildRelationship = () => {
+import { useState } from "react";
+import ChildRelationshipItem from "./ChildRelationshipItem";
+
+const ChildRelationship = ({ isEdit }) => {
+  const inputs = {
+    no: "",
+    childName: "",
+    abuserName: "",
+    relationshipWithChild: "",
+    livingTogether: "",
+    reReport: "",
+    specialCare: "",
+    IndividualRegistrationNumber: "",
+  };
+  const [childRelationshipList, setChildRelationshipList] = useState([
+    {
+      no: "",
+      childName: "",
+      abuserName: "",
+      relationshipWithChild: "",
+      livingTogether: "",
+      reReport: "",
+      specialCare: "",
+      IndividualRegistrationNumber: "",
+    },
+  ]);
+
   return (
     <>
-      <h3>대상자 관계</h3>
-      <table>
+      <div className="table-header">
+        <h4>대상자 관계</h4>
+        {isEdit && (
+          <button
+            className="btn btn-outline-primary"
+            onClick={() => {
+              setChildRelationshipList([...childRelationshipList, inputs]);
+            }}
+          >
+            추가
+          </button>
+        )}
+      </div>
+
+      <table className="table table-bordered">
         <tr>
           <th>No</th>
           <th>아동명</th>
-          <th>조사완료여부</th>
           <th>학대행위자명</th>
           <th>아동과의 관계</th>
           <th>아동과의 동거여부</th>
@@ -14,16 +52,9 @@ const ChildRelationship = () => {
           <th>특별관리유형</th>
           <th>개별접수번호</th>
         </tr>
-        <tr>
-          <td>Jill</td>
-          <td>Smith</td>
-          <td>50</td>
-          <td>Jill</td>
-          <td>Smith</td>
-          <td>50</td>
-          <td>Jill</td>
-          <td>Smith</td>
-        </tr>
+        {childRelationshipList.map(() => (
+          <ChildRelationshipItem isEdit={isEdit} />
+        ))}
       </table>
     </>
   );

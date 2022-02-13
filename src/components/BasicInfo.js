@@ -1,4 +1,15 @@
 import { useState } from "react";
+import "moment/locale/ko";
+
+const changeDate = (dateTime) => {
+  var moment = require("moment");
+
+  const changeKorean = moment(dateTime)
+    .locale("ko")
+    .format("YYYY년 MM월 DD일 (ddd) HH:mm");
+  return changeKorean;
+};
+
 const BasicInfo = ({ isEdit }) => {
   const [inputs, setInputs] = useState({
     institutionName: "",
@@ -27,64 +38,87 @@ const BasicInfo = ({ isEdit }) => {
 
   return (
     <>
-      <h3>기본 정보</h3>
-
+      <div className="table-header">
+        <h4>기본 정보</h4>
+      </div>
       {isEdit ? (
-        <table>
+        <table className="table table-bordered">
           <tr>
-            <th>기관명</th>
-            <input
-              name="institutionName"
-              onChange={onChange}
-              value={institutionName}
-            />
-            <th>사건번호</th>
-            <input
-              name="caseNumber"
-              type="number"
-              onChange={onChange}
-              value={caseNumber}
-            />
-            <th>사례관리지역</th>
-            <input
-              name="caseManagementArea"
-              onChange={onChange}
-              value={caseManagementArea}
-            />
+            <th style={{ width: "165px" }}>기관명</th>
+            <td style={{ width: "250px" }}>
+              <input
+                className="form-control"
+                name="institutionName"
+                onChange={onChange}
+                value={institutionName}
+              />
+            </td>
+            <th style={{ width: "165px" }}>사건번호</th>{" "}
+            <td style={{ width: "250px" }}>
+              <input
+                className="form-control"
+                name="caseNumber"
+                type="number"
+                onChange={onChange}
+                value={caseNumber}
+              />
+            </td>
+            <th style={{ width: "165px" }}>사례관리지역</th>
+            <td style={{ width: "250px" }}>
+              <input
+                className="form-control"
+                name="caseManagementArea"
+                onChange={onChange}
+                value={caseManagementArea}
+              />
+            </td>
           </tr>
           <tr>
             <th>사건담당자</th>
-            <input name="caseManager" onChange={onChange} value={caseManager} />
+            <td>
+              <input
+                className="form-control"
+                name="caseManager"
+                onChange={onChange}
+                value={caseManager}
+              />
+            </td>
             <th>신고접수일시</th>
-            <input
-              name="reportDate"
-              type="datetime-local"
-              onChange={onChange}
-              value={reportDate}
-            />
+            <td>
+              <input
+                className="form-control"
+                name="reportDate"
+                type="datetime-local"
+                onChange={onChange}
+                value={reportDate}
+              />
+            </td>
             <th>집단시설 내 사건</th>
-            <input
-              name="facilityCase"
-              onChange={onChange}
-              value={facilityCase}
-            />
+            <td>
+              <input
+                className="form-control"
+                name="facilityCase"
+                onChange={onChange}
+                value={facilityCase}
+              />
+            </td>
           </tr>
         </table>
       ) : (
-        <table>
+        <table className="table table-bordered">
           <tr>
-            <th>기관명</th>
-            <td>{institutionName}</td>
-            <th>사건번호</th>
-            <td>{caseNumber}</td>
-            <th>사례관리지역</th>
-            <td>{caseManagementArea}</td>
+            <th style={{ width: "165px" }}>기관명</th>
+            <td style={{ width: "250px" }}>{institutionName}</td>
+            <th style={{ width: "165px" }}>사건번호</th>
+            <td style={{ width: "250px" }}>{caseNumber}</td>
+            <th style={{ width: "165px" }}>사례관리지역</th>
+            <td style={{ width: "250px" }}>{caseManagementArea}</td>
           </tr>
           <tr>
             <th>사건담당자</th>
             <td>{caseManager}</td>
             <th>신고접수일시</th>
-            <td>{reportDate}</td>
+            <td>{reportDate ? changeDate(reportDate) : null}</td>
             <th>집단시설 내 사건</th>
             <td>{facilityCase}</td>
           </tr>

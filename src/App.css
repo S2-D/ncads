@@ -8,18 +8,49 @@ body {
   width: 90%;
 }
 
-table,
-th,
-td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-
 table {
-  width: 90%;
+  /* width: 400px; */
+  margin: 20px 0px;
 }
-
+th,
 td,
 input {
   text-align: center;
+  margin: auto;
+}
+
+input {
+  width: 100%;
+}
+
+.app-container {
+  width: 1400px;
+  margin: auto;
+}
+
+textarea:read-only {
+  width: 300px;
+  overflow: hidden;
+  border: none;
+  /* resize: none; */
+}
+textarea:focus {
+  outline: none;
+}
+
+hr {
+  margin: 30px 0px;
+  width: 100%;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.form-control:focus {
+  box-shadow: none;
+  outline: 0 none;
+}
+
+.table-header {
+  margin: 40px 0px 30px 0px;
+  display: flex;
+  justify-content: space-between;
 }

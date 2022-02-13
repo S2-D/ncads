@@ -1,11 +1,32 @@
-const Compelete = () => {
+import { useState } from "react";
+
+const Compelete = ({ isEdit }) => {
+  const [isComplete, setIsComplete] = useState("");
+
+  const onChange = (e) => {
+    const { value } = e.target;
+    setIsComplete(value);
+  };
+
   return (
     <>
-      <h3>조사완료여부</h3>
-      <table>
+      <div className="table-header">
+        <h4>조사완료여부</h4>
+      </div>
+      <table className="table table-bordered">
         <tr>
-          <th>조사완료여부</th>
-          <td>완료</td>
+          <th style={{ width: "150px" }}>조사완료여부</th>
+          <td>
+            {isEdit ? (
+              <input
+                className="form-control"
+                onChange={onChange}
+                value={isComplete}
+              />
+            ) : (
+              isComplete
+            )}
+          </td>
         </tr>
       </table>
     </>
