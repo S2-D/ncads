@@ -13,16 +13,18 @@ const InvestigatorOpinion = ({ isView }) => {
         <th>조사자 종합소견</th>
       </tr>
       <tr>
-        {isView ? (
-          <textarea
-            className="form-control"
-            name="opinion"
-            onChange={onChange}
-            value={opinion}
-          />
-        ) : (
-          <textarea readOnly={true} value={opinion} />
-        )}
+        <td>
+          {isView ? (
+            <textarea
+              className="form-control"
+              name="opinion"
+              onChange={onChange}
+              value={opinion}
+            />
+          ) : (
+            <textarea readOnly={true} value={opinion} />
+          )}
+        </td>
       </tr>
     </table>
   );
