@@ -1,5 +1,5 @@
 import { useState } from "react";
-import InvestigationDetailItem from "./InvestigationDetailItem";
+// import InvestigationDetailItem from "./InvestigationDetailItem";
 
 const InvestigationDetail = ({ isEdit }) => {
   const [inputs, setInputs] = useState({
@@ -15,6 +15,23 @@ const InvestigationDetail = ({ isEdit }) => {
     investigationTime: "",
     investigationLocation: "",
   });
+
+  const [investigationDetailList, setInvestigationDetailList] = useState([
+    {
+      requestingAgency: "",
+      accompanying: "",
+      counselor: "",
+      companionCounselor: "",
+      therapist: "",
+      policeman: "",
+      relatedPublicOfficial: "",
+      investigationMethod: "",
+      movingTime: "",
+      investigationTime: "",
+      investigationLocation: "",
+    },
+  ]);
+
   const {
     requestingAgency,
     accompanying,
@@ -40,7 +57,17 @@ const InvestigationDetail = ({ isEdit }) => {
   return (
     <>
       <div className="table-header">
-        <h4>조사 내용</h4>
+        <h4>조사 내용</h4>{" "}
+        {isEdit && (
+          <button
+            className="btn btn-outline-primary"
+            onClick={() => {
+              setInvestigationDetailList([...investigationDetailList, inputs]);
+            }}
+          >
+            추가
+          </button>
+        )}
       </div>
       {isEdit ? (
         <table className="table table-bordered">

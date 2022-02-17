@@ -11,6 +11,7 @@ function App() {
   return (
     <div className="App">
       <button
+        id="noprint"
         className="btn btn-outline-primary"
         onClick={() => {
           setIsEdit(!isEdit);
