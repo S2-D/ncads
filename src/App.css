@@ -18,6 +18,9 @@ input {
   text-align: center;
   margin: auto;
 }
+th {
+  background-color: rgba(0, 0, 0, 0.01);
+}
 
 input {
   width: 100%;
