@@ -5,6 +5,8 @@ import ChildInfo from "./components/ChildInfo";
 import ChildRelationship from "./components/ChildRelationship";
 import Compelete from "./components/Compelete";
 import InvestigationDetail from "./components/InvestigationDetail";
+import InvestigationTargetDetail from "./components/InvestigationTargetDetail";
+import InvestigatorOpinion from "./components/InvestigatorOpinion";
 
 function App() {
   const [isEdit, setIsEdit] = useState(false);
@@ -12,7 +14,7 @@ function App() {
     <div className="App">
       <button
         id="noprint"
-        className="btn btn-outline-primary"
+        className="editBtn btn btn-outline-primary"
         onClick={() => {
           setIsEdit(!isEdit);
         }}
@@ -29,8 +31,13 @@ function App() {
         <ChildInfo isEdit={isEdit} />
         <ChildRelationship isEdit={isEdit} />
         <Compelete isEdit={isEdit} />
+        <br />
+
         <hr />
+
         <InvestigationDetail isEdit={isEdit} />
+        <InvestigationTargetDetail isEdit={isEdit} />
+        <InvestigatorOpinion isEdit={isEdit} />
       </div>
     </div>
   );
