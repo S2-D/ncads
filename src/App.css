@@ -24,7 +24,7 @@ input {
 }
 
 .app-container {
-  width: 1400px;
+  width: 1300px;
   margin: 40px auto;
 }
 
@@ -58,7 +58,7 @@ hr {
 
 .editBtn {
   position: fixed;
-  top: 60px;
+  bottom: 60px;
   right: 100px;
 }
 

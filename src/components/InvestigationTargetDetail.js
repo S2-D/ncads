@@ -1,7 +1,7 @@
 import { useState } from "react";
 import InvestigationTargetDetailItem from "./InvestigationTargetDetailItem";
 
-const InvestigationTargetDetail = ({ isEdit }) => {
+const InvestigationTargetDetail = ({ isView }) => {
   const inputs = {
     relationshipWithChild: "",
     name: "",
@@ -32,7 +32,7 @@ const InvestigationTargetDetail = ({ isEdit }) => {
   return (
     <>
       <div className="table-header">
-        {isEdit && (
+        {isView && (
           <>
             <h4>조사대상 및 내용</h4>
             <button
@@ -50,7 +50,7 @@ const InvestigationTargetDetail = ({ isEdit }) => {
         )}
       </div>
       {investigationDetailList.map((v, index) => (
-        <InvestigationTargetDetailItem index={index} isEdit={isEdit} />
+        <InvestigationTargetDetailItem index={index} isView={isView} />
       ))}
     </>
   );

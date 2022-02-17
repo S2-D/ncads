@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ChildInfoItem from "./ChildInfoItem";
 
-const ChildInfo = ({ isEdit }) => {
+const ChildInfo = ({ isView }) => {
   const inputs = {
     no: "",
     relationshipInfo: "",
@@ -31,7 +31,7 @@ const ChildInfo = ({ isEdit }) => {
     <>
       <div className="table-header">
         <h4>대상자 정보</h4>{" "}
-        {isEdit && (
+        {isView && (
           <button
             className="btn btn-outline-primary"
             onClick={() => {
@@ -55,7 +55,7 @@ const ChildInfo = ({ isEdit }) => {
           <th>주민등록 등초본 신청 상태</th>
         </tr>
         {childInfoList.map(() => (
-          <ChildInfoItem isEdit={isEdit} />
+          <ChildInfoItem isView={isView} />
         ))}
       </table>
     </>

@@ -9,35 +9,35 @@ import InvestigationTargetDetail from "./components/InvestigationTargetDetail";
 import InvestigatorOpinion from "./components/InvestigatorOpinion";
 
 function App() {
-  const [isEdit, setIsEdit] = useState(false);
+  const [isView, setIsView] = useState(true);
   return (
     <div className="App">
       <button
         id="noprint"
-        className="editBtn btn btn-outline-primary"
+        className="editBtn btn btn-primary"
         onClick={() => {
-          setIsEdit(!isEdit);
+          setIsView(!isView);
         }}
       >
-        {isEdit ? "완료" : "수정"}
+        {isView ? "완료" : "수정"}
       </button>
       <div className="app-container">
         <h2>
           아동학대조사{"  "}
-          {isEdit && <small class="text-muted"> (수정 모드)</small>}
+          {isView && <small class="text-muted"> (수정 모드)</small>}
         </h2>
 
-        <BasicInfo isEdit={isEdit} />
-        <ChildInfo isEdit={isEdit} />
-        <ChildRelationship isEdit={isEdit} />
-        <Compelete isEdit={isEdit} />
+        <BasicInfo isView={isView} />
+        <ChildInfo isView={isView} />
+        <ChildRelationship isView={isView} />
+        <Compelete isView={isView} />
         <br />
 
         <hr />
 
-        <InvestigationDetail isEdit={isEdit} />
-        <InvestigationTargetDetail isEdit={isEdit} />
-        <InvestigatorOpinion isEdit={isEdit} />
+        <InvestigationDetail isView={isView} />
+        <InvestigationTargetDetail isView={isView} />
+        <InvestigatorOpinion isView={isView} />
       </div>
     </div>
   );

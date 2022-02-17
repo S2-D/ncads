@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ChildRelationshipItem from "./ChildRelationshipItem";
 
-const ChildRelationship = ({ isEdit }) => {
+const ChildRelationship = ({ isView }) => {
   const inputs = {
     no: "",
     childName: "",
@@ -29,7 +29,7 @@ const ChildRelationship = ({ isEdit }) => {
     <>
       <div className="table-header">
         <h4>대상자 관계</h4>
-        {isEdit && (
+        {isView && (
           <button
             className="btn btn-outline-primary"
             onClick={() => {
@@ -53,7 +53,7 @@ const ChildRelationship = ({ isEdit }) => {
           <th>개별접수번호</th>
         </tr>
         {childRelationshipList.map(() => (
-          <ChildRelationshipItem isEdit={isEdit} />
+          <ChildRelationshipItem isView={isView} />
         ))}
       </table>
     </>

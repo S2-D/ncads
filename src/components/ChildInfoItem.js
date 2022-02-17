@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ChildInfoItem = ({ isEdit }) => {
+const ChildInfoItem = ({ isView }) => {
   const [inputs, setInputs] = useState({
     no: "",
     relationshipInfo: "",
@@ -34,7 +34,7 @@ const ChildInfoItem = ({ isEdit }) => {
   } = inputs;
   return (
     <tr>
-      {isEdit ? (
+      {isView ? (
         <>
           <td>
             <input

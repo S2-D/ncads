@@ -10,7 +10,7 @@ const changeDate = (dateTime) => {
   return changeKorean;
 };
 
-const BasicInfo = ({ isEdit }) => {
+const BasicInfo = ({ isView }) => {
   const [inputs, setInputs] = useState({
     institutionName: "",
     caseNumber: "",
@@ -41,7 +41,7 @@ const BasicInfo = ({ isEdit }) => {
       <div className="table-header">
         <h4>기본 정보</h4>
       </div>
-      {isEdit ? (
+      {isView ? (
         <table className="table table-bordered">
           <tr>
             <th style={{ width: "165px" }}>기관명</th>

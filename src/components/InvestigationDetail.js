@@ -1,7 +1,7 @@
 import { useState } from "react";
 // import InvestigationDetailItem from "./InvestigationDetailItem";
 
-const InvestigationDetail = ({ isEdit }) => {
+const InvestigationDetail = ({ isView }) => {
   const [inputs, setInputs] = useState({
     requestingAgency: "",
     accompanying: "",
@@ -58,7 +58,7 @@ const InvestigationDetail = ({ isEdit }) => {
     <>
       <div className="table-header">
         <h4>조사 내용</h4>{" "}
-        {isEdit && (
+        {isView && (
           <button
             className="btn btn-outline-primary"
             onClick={() => {
@@ -69,7 +69,7 @@ const InvestigationDetail = ({ isEdit }) => {
           </button>
         )}
       </div>
-      {isEdit ? (
+      {isView ? (
         <table className="table table-bordered">
           <tr>
             <th style={{ width: "165px" }}>동행요청</th>

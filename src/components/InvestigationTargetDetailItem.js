@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const InvestigationTargetDetailItem = ({ isEdit, index }) => {
+const InvestigationTargetDetailItem = ({ isView, index }) => {
   const [inputs, setInputs] = useState({
     relationshipWithChild: "",
     name: "",
@@ -41,7 +41,7 @@ const InvestigationTargetDetailItem = ({ isEdit, index }) => {
       <tr>
         <th colspan={5}>조사대상 및 내용 {index + 1}</th>
       </tr>
-      {isEdit ? (
+      {isView ? (
         <>
           {" "}
           <tr>

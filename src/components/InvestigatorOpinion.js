@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const InvestigatorOpinion = ({ isEdit }) => {
+const InvestigatorOpinion = ({ isView }) => {
   const [opinion, setOpinion] = useState("");
 
   const onChange = (e) => {
@@ -13,7 +13,7 @@ const InvestigatorOpinion = ({ isEdit }) => {
         <th>조사자 종합소견</th>
       </tr>
       <tr>
-        {isEdit ? (
+        {isView ? (
           <textarea
             className="form-control"
             name="opinion"

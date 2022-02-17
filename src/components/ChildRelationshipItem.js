@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ChildRelationshipItem = ({ isEdit }) => {
+const ChildRelationshipItem = ({ isView }) => {
   const [inputs, setInputs] = useState({
     no: "",
     childName: "",
@@ -32,7 +32,7 @@ const ChildRelationshipItem = ({ isEdit }) => {
 
   return (
     <tr>
-      {isEdit ? (
+      {isView ? (
         <>
           <td style={{ width: "80px" }}>
             <input

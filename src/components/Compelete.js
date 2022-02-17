@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Compelete = ({ isEdit }) => {
+const Compelete = ({ isView }) => {
   const [isComplete, setIsComplete] = useState("");
 
   const onChange = (e) => {
@@ -17,7 +17,7 @@ const Compelete = ({ isEdit }) => {
         <tr>
           <th style={{ width: "150px" }}>조사완료여부</th>
           <td>
-            {isEdit ? (
+            {isView ? (
               <input
                 className="form-control"
                 onChange={onChange}
