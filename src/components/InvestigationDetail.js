@@ -4,20 +4,6 @@ import InvestigationTargetDetail from "./InvestigationTargetDetail";
 import InvestigatorOpinion from "./InvestigatorOpinion";
 
 const InvestigationDetail = ({ isView }) => {
-  const inputs = {
-    requestingAgency: "",
-    accompanying: "",
-    counselor: "",
-    companionCounselor: "",
-    therapist: "",
-    policeman: "",
-    relatedPublicOfficial: "",
-    investigationMethod: "",
-    movingTime: "",
-    investigationTime: "",
-    investigationLocation: "",
-  };
-
   const [investigationDetailList, setInvestigationDetailList] = useState([
     {
       requestingAgency: "",
