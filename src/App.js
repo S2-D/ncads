@@ -5,8 +5,6 @@ import ChildInfo from "./components/ChildInfo";
 import ChildRelationship from "./components/ChildRelationship";
 import Compelete from "./components/Compelete";
 import InvestigationDetail from "./components/InvestigationDetail";
-import InvestigationTargetDetail from "./components/InvestigationTargetDetail";
-import InvestigatorOpinion from "./components/InvestigatorOpinion";
 
 function App() {
   const [isView, setIsView] = useState(true);
@@ -36,8 +34,6 @@ function App() {
         <hr />
 
         <InvestigationDetail isView={isView} />
-        <InvestigationTargetDetail isView={isView} />
-        <InvestigatorOpinion isView={isView} />
       </div>
     </div>
   );

@@ -36,7 +36,7 @@ const ChildRelationship = ({ isView }) => {
               setChildRelationshipList([...childRelationshipList, inputs]);
             }}
           >
-            추가
+            대상자 관계 추가
           </button>
         )}
       </div>

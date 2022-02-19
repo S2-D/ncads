@@ -38,7 +38,7 @@ const ChildInfo = ({ isView }) => {
               setChildInfoList([...childInfoList, inputs]);
             }}
           >
-            추가
+            대상자 정보 추가
           </button>
         )}
       </div>

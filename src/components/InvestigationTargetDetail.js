@@ -31,10 +31,10 @@ const InvestigationTargetDetail = ({ isView }) => {
 
   return (
     <>
-      <div className="table-header">
+      <div className="table-header" style={{ justifyContent: "flex-end"}}>
         {isView && (
           <>
-            <h4>조사대상 및 내용</h4>
+            {/* <h4>조사대상 및 내용</h4> */}
             <button
               className="btn btn-outline-primary"
               onClick={() => {
@@ -44,7 +44,7 @@ const InvestigationTargetDetail = ({ isView }) => {
                 ]);
               }}
             >
-              추가
+              조사대상 및 내용 추가
             </button>
           </>
         )}
@@ -52,6 +52,7 @@ const InvestigationTargetDetail = ({ isView }) => {
       {investigationDetailList.map((v, index) => (
         <InvestigationTargetDetailItem index={index} isView={isView} />
       ))}
+
     </>
   );
 };

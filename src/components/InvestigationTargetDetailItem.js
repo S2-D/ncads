@@ -35,7 +35,6 @@ const InvestigationTargetDetailItem = ({ isView, index }) => {
     etc,
   } = inputs;
 
-  console.log("index", index);
   return (
     <table className="table table-bordered">
       <tr>
