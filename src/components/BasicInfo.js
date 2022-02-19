@@ -1,14 +1,4 @@
 import { useState } from "react";
-import "moment/locale/ko";
-
-const changeDate = (dateTime) => {
-  var moment = require("moment");
-
-  const changeKorean = moment(dateTime)
-    .locale("ko")
-    .format("YYYY년 MM월 DD일 (ddd) HH:mm");
-  return changeKorean;
-};
 
 const BasicInfo = ({ isView }) => {
   const [inputs, setInputs] = useState({
@@ -88,7 +78,6 @@ const BasicInfo = ({ isView }) => {
               <input
                 className="form-control"
                 name="reportDate"
-                type="datetime-local"
                 onChange={onChange}
                 value={reportDate}
               />
@@ -118,7 +107,7 @@ const BasicInfo = ({ isView }) => {
             <th>사건담당자</th>
             <td>{caseManager}</td>
             <th>신고접수일시</th>
-            <td>{reportDate ? changeDate(reportDate) : null}</td>
+            <td>{reportDate}</td>
             <th>집단시설 내 사건</th>
             <td>{facilityCase}</td>
           </tr>

@@ -74,12 +74,14 @@ const InvestigationDetailItem = ({
               </td>
               <th>동행여부</th>
               <td>
-                <input
-                  className="form-control"
+                <select
                   name="accompanying"
+                  className="custom-select"
                   onChange={onChange}
-                  value={accompanying}
-                />
+                >
+                  <option value="동행">동행</option>
+                  <option value="비동행">비동행</option>
+                </select>
               </td>
             </tr>
             <tr>
