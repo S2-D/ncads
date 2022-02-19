@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import BasicInfo from "./components/BasicInfo";
 import ChildInfo from "./components/ChildInfo";
-import ChildRelationship from "./components/ChildRelationship";
+// import ChildRelationship from "./components/ChildRelationship";
 import Compelete from "./components/Compelete";
 import InvestigationDetail from "./components/InvestigationDetail";
 
@@ -27,7 +27,7 @@ function App() {
 
         <BasicInfo isView={isView} />
         <ChildInfo isView={isView} />
-        <ChildRelationship isView={isView} />
+        {/* <ChildRelationship isView={isView} /> */}
         <Compelete isView={isView} />
         <br />
 
