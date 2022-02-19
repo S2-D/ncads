@@ -36,7 +36,6 @@ const InvestigationDetail = ({ isView }) => {
 
   return (
     <>
-      <div className="table-header"></div>
       {investigationDetailList.map((v, index) => (
         <>
           <InvestigationDetailItem
