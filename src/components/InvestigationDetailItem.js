@@ -19,7 +19,7 @@ const InvestigationDetailItem = ({
     investigationTime: "",
     investigationLocation: "",
   });
-
+  const options = [{ value: "동행" }, { value: "비동행" }];
   const onChange = (e) => {
     const { value, name } = e.target;
     setInputs({
@@ -78,9 +78,13 @@ const InvestigationDetailItem = ({
                   name="accompanying"
                   className="custom-select"
                   onChange={onChange}
+                  defaultValue={inputs.accompanying}
                 >
-                  <option value="동행">동행</option>
-                  <option value="비동행">비동행</option>
+                  {options.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.value}
+                    </option>
+                  ))}
                 </select>
               </td>
             </tr>
