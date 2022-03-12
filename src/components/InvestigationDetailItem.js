@@ -8,7 +8,7 @@ const InvestigationDetailItem = ({
 }) => {
   const [inputs, setInputs] = useState({
     requestingAgency: "",
-    accompanying: "",
+    accompanying: "동행",
     counselor: "",
     companionCounselor: "",
     therapist: "",
