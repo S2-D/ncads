@@ -29,7 +29,7 @@ const ChildInfoItem = ({
           <td>
             <button
               value={index}
-              className="btn btn-outline-primary"
+              className="btn btn-outline-danger"
               onClick={(e) => {
                 deleteRow(Number(e.target.value));
                 // changeChildInfoList(Number(e.target.value));

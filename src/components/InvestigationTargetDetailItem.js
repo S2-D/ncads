@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const InvestigationTargetDetailItem = ({
   value,
   isView,
@@ -41,7 +39,7 @@ const InvestigationTargetDetailItem = ({
               <button
                 style={{ right: "80px" }}
                 value={index}
-                className="btn btn-outline-primary"
+                className="btn btn-outline-danger"
                 onClick={(e) => {
                   deleteDetail(Number(e.target.value));
                 }}

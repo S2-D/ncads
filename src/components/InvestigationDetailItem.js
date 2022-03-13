@@ -1,31 +1,15 @@
-import { useState } from "react";
-
 const InvestigationDetailItem = ({
-  investigationDetailList,
-  setInvestigationDetailList,
+  value,
+  deleteDetail,
+  changeDetailList,
   isView,
   index,
+  inputs,
 }) => {
-  const [inputs, setInputs] = useState({
-    requestingAgency: "",
-    accompanying: "동행",
-    counselor: "",
-    companionCounselor: "",
-    therapist: "",
-    policeman: "",
-    relatedPublicOfficial: "",
-    investigationMethod: "",
-    movingTime: "",
-    investigationTime: "",
-    investigationLocation: "",
-  });
   const options = [{ value: "동행" }, { value: "비동행" }];
   const onChange = (e) => {
     const { value, name } = e.target;
-    setInputs({
-      ...inputs,
-      [name]: value,
-    });
+    changeDetailList(index, name, value);
   };
 
   const {
@@ -40,7 +24,7 @@ const InvestigationDetailItem = ({
     movingTime,
     investigationTime,
     investigationLocation,
-  } = inputs;
+  } = value;
 
   return (
     <>
@@ -49,15 +33,13 @@ const InvestigationDetailItem = ({
           <div className="table-header">
             <h4>조사 내용 {index + 1}</h4>
             <button
-              className="btn btn-outline-primary"
-              onClick={() => {
-                setInvestigationDetailList([
-                  ...investigationDetailList,
-                  inputs,
-                ]);
+              className="btn btn-outline-danger"
+              value={index}
+              onClick={(e) => {
+                deleteDetail(Number(e.target.value));
               }}
             >
-              조사 내용 추가
+              조사 내용 {index + 1} 삭제
             </button>
           </div>
           <table className="table table-bordered">
