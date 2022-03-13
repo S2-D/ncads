@@ -38,7 +38,7 @@ const InvestigationTargetDetailItem = ({ isView, index }) => {
   return (
     <table className="table table-bordered">
       <tr>
-        <th colspan={5}>조사대상 및 내용 {index + 1}</th>
+        <th colSpan={5}>조사대상 및 내용 {index + 1}</th>
       </tr>
       {isView ? (
         <>

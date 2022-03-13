@@ -22,7 +22,7 @@ function App() {
       <div className="app-container">
         <h2>
           아동학대조사{"  "}
-          {isView && <small class="text-muted"> (수정 모드)</small>}
+          {isView && <small className="text-muted"> (수정 모드)</small>}
         </h2>
 
         <BasicInfo isView={isView} />
