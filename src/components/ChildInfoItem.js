@@ -1,24 +1,13 @@
-import { useState } from "react";
-
-const ChildInfoItem = ({ isView }) => {
-  const [inputs, setInputs] = useState({
-    no: "",
-    relationshipInfo: "",
-    name: "",
-    gender: "",
-    age: "",
-    residenRegistrationNumber: "",
-    educationalInstitution: "",
-    phoneNumber: "",
-    copyRequestState: "",
-  });
-
+const ChildInfoItem = ({
+  value,
+  isView,
+  index,
+  deleteRow,
+  changeChildInfoList,
+}) => {
   const onChange = (e) => {
     const { value, name } = e.target;
-    setInputs({
-      ...inputs,
-      [name]: value,
-    });
+    changeChildInfoList(index, name, value);
   };
 
   const {
@@ -31,11 +20,24 @@ const ChildInfoItem = ({ isView }) => {
     educationalInstitution,
     phoneNumber,
     copyRequestState,
-  } = inputs;
+  } = value;
+
   return (
     <tr>
       {isView ? (
         <>
+          <td>
+            <button
+              value={index}
+              className="btn btn-outline-primary"
+              onClick={(e) => {
+                deleteRow(Number(e.target.value));
+                // changeChildInfoList(Number(e.target.value));
+              }}
+            >
+              삭제
+            </button>
+          </td>
           <td>
             <input
               className="form-control"
