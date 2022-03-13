@@ -60,7 +60,7 @@ const InvestigationDetailItem = ({
                   name="accompanying"
                   className="custom-select"
                   onChange={onChange}
-                  defaultValue={inputs.accompanying}
+                  defaultValue={accompanying}
                 >
                   {options.map((option) => (
                     <option key={option.value} value={option.value}>
