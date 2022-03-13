@@ -15,23 +15,28 @@ const InvestigationTargetDetail = ({ isView }) => {
     etc: "",
   };
   const [investigationDetailList, setInvestigationDetailList] = useState([
-    {
-      relationshipWithChild: "",
-      name: "",
-      gender: "",
-      phoneNumber: "",
-      investigationTime: "",
-      observations: "",
-      abuseOrNot: "",
-      targetCharacteristics: "",
-      targetDesire: "",
-      etc: "",
-    },
+    inputs,
   ]);
+
+  const deleteDetail = (index1) => {
+    let filterArr = investigationDetailList.filter(
+      (data, index) => index !== index1
+    );
+    setInvestigationDetailList(filterArr);
+  };
+
+  const changeDetailList = (index, name, value) => {
+    let investigationDetailList1 = [...investigationDetailList];
+    investigationDetailList1[index] = {
+      ...investigationDetailList1[index],
+      [name]: value,
+    };
+    setInvestigationDetailList(investigationDetailList1);
+  };
 
   return (
     <>
-      <div className="table-header" style={{ justifyContent: "flex-end"}}>
+      <div className="table-header" style={{ justifyContent: "flex-end" }}>
         {isView && (
           <>
             {/* <h4>조사대상 및 내용</h4> */}
@@ -49,10 +54,16 @@ const InvestigationTargetDetail = ({ isView }) => {
           </>
         )}
       </div>
-      {investigationDetailList.map((v, index) => (
-        <InvestigationTargetDetailItem index={index} isView={isView} />
+      {investigationDetailList.map((value, index) => (
+        <InvestigationTargetDetailItem
+          key={index}
+          value={value}
+          index={index}
+          isView={isView}
+          deleteDetail={deleteDetail}
+          changeDetailList={changeDetailList}
+        />
       ))}
-
     </>
   );
 };

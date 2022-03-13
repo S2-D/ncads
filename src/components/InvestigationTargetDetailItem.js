@@ -1,25 +1,15 @@
 import { useState } from "react";
 
-const InvestigationTargetDetailItem = ({ isView, index }) => {
-  const [inputs, setInputs] = useState({
-    relationshipWithChild: "",
-    name: "",
-    gender: "",
-    phoneNumber: "",
-    investigationTime: "",
-    observations: "",
-    abuseOrNot: "",
-    targetCharacteristics: "",
-    targetDesire: "",
-    etc: "",
-  });
-
+const InvestigationTargetDetailItem = ({
+  value,
+  isView,
+  index,
+  deleteDetail,
+  changeDetailList,
+}) => {
   const onChange = (e) => {
     const { value, name } = e.target;
-    setInputs({
-      ...inputs,
-      [name]: value,
-    });
+    changeDetailList(index, name, value);
   };
 
   const {
@@ -33,16 +23,37 @@ const InvestigationTargetDetailItem = ({ isView, index }) => {
     targetCharacteristics,
     targetDesire,
     etc,
-  } = inputs;
+  } = value;
 
   return (
     <table className="table table-bordered">
       <tr>
-        <th colSpan={5}>조사대상 및 내용 {index + 1}</th>
+        <th colSpan={5}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              margin: "0px,30px",
+            }}
+          >
+            조사대상 및 내용 {index + 1}
+            {isView && (
+              <button
+                style={{ right: "80px" }}
+                value={index}
+                className="btn btn-outline-primary"
+                onClick={(e) => {
+                  deleteDetail(Number(e.target.value));
+                }}
+              >
+                조사대상 및 내용 {index + 1} 삭제
+              </button>
+            )}
+          </div>
+        </th>
       </tr>
       {isView ? (
         <>
-          {" "}
           <tr>
             <th rowSpan={3} style={{ width: "165px" }}>
               조사대상자
